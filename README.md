@@ -1,3 +1,17 @@
+About
+====================
+A JS app for playing (and creating in the future) simple point and click adventures. Inspired by and created for Why? The Explorable Story see
+http://spaceappschallenge.org/project/why-the-explorable-story/ and http://www.explorablestory.org/ 
+
+The app is OpenShift CakePHP cartridge but the app currently uses no PHP and is pure HTML/JS but using OpenShift can be easily deployed to the VM (simple as a git push).
+Check out openshift.redhat.com for more info on OpenShift cartridges.
+
+The JS is based on the AMD pattern and is powered by dojo - http://dojotoolkit.org/
+
+A demo is currently hosted at http://whyweexplore-theomccaie.rhcloud.com/roomPlayer.html#tree_house_in_woods_room 
+
+
+
 CakePHP on OpenShift
 ====================
 
