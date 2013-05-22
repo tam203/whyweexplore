@@ -1,5 +1,5 @@
-define(['dojo/_base/declare', 'dojo/on', 'whyweexplore/roomplayer/items/Item', 'dojo/dom-style'],
-    function (declare, on, Item, domStyle) {
+define(['dojo/_base/declare', 'dojo/on', 'whyweexplore/roomplayer/items/Item', 'dojo/dom-style', 'dojo/_base/lang'],
+    function (declare, on, Item, domStyle, lang) {
     var KeyboardMovableItem = declare([Item], {
         postCreate:function(){
             this.inherited(arguments);
@@ -7,27 +7,55 @@ define(['dojo/_base/declare', 'dojo/on', 'whyweexplore/roomplayer/items/Item', '
         },
 
         addKeyboardListeners:function(){
-            on(document, "keyup", function(event){
+            on(document, "keyup", lang.hitch(this, function(event){
                console.log(event.keyCode);
                 switch (event.keyCode){
                     case 38:
-                        this.left()
-                        break;
-                    case 40:
-                        this.right()
-                        break;
-                    case 37:
                         this.up()
                         break;
-                    case 39:
+                    case 40:
                         this.down()
                         break;
+                    case 37:
+                        this.left()
+                        break;
+                    case 39:
+                        this.right()
+                        break;
                 }
-            });
+            }));
+        },
+
+        up:function(){
+            var pos = '' + domStyle.get(this.domNode, "bottom");
+            pos = +((''+pos).replace('%',''));
+            pos = (pos + 1) + '%';
+            domStyle.set(this.domNode, "bottom", pos);
+            console.log(pos);
         },
 
         left:function(){
-            domStyle.get(this.domNode, "");
+            var pos = '' + domStyle.get(this.domNode, "left");
+            pos = +((''+pos).replace('%',''));
+            pos = (pos - 1) + '%';
+            domStyle.set(this.domNode, "left", pos);
+            console.log(pos);
+        },
+
+        right:function(){
+            var pos = '' + domStyle.get(this.domNode, "left");
+            pos = +((''+pos).replace('%',''));
+            pos = (pos + 1) + '%';
+            domStyle.set(this.domNode, "left", pos);
+            console.log(pos);
+        },
+
+        down:function(){
+            var pos = '' + domStyle.get(this.domNode, "bottom");
+            pos = +((''+pos).replace('%',''));
+            pos = (pos - 1) + '%';
+            domStyle.set(this.domNode, "bottom", pos);
+            console.log(pos);
         }
 
 
