@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+
+<div id="stage" title="" style="position:relative; overflow:  hidden; width: 800px; height: 532px;"></div>
+
+
+<script type="text/javascript">
+    // Instead of using data-dojo-config, we’re creating a dojoConfig
+    // object *before* we load dojo.js; they’re functionally identical,
+    // it's just easier to read this approach with a larger configuration.
+    var dojoConfig = {
+        async:true,
+        // This code registers the correct location of the "demo"
+        // package so we can load Dojo from the CDN whilst still
+        // being able to load local modules
+        packages:[
+            {
+                name:"whyweexplore",
+                location:location.pathname.replace(/\/[^/]*$/, '') + '/js/whyweexplore'
+            }
+        ]
+    };
+</script>
+<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.1/dojo/dojo.js" type="text/javascript"></script>
+<script type="text/javascript" accesskey="">
+    require(["whyweexplore/roomplayer/init"],function(init){
+        init();
+    })
+
+</script>
+</body>
+</html>

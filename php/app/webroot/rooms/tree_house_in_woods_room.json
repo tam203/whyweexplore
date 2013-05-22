@@ -1,0 +1,77 @@
+{
+    "title":"Tree house in the woods",
+    "background":"img/rooms/woods.jpg",
+    "items": [
+        {
+            "name":"Ladder",
+            "id":"ladder",
+            "x":87,
+            "y":3,
+            "image":"img/rooms/ladder.png"
+        },
+        {
+            "name":"TreeHouse",
+            "id":"treehouse",
+            "x":17,
+            "y":20,
+            "image":"img/rooms/treeHouse.png"
+        },
+        {
+            "name": "Treehouse with ladder",
+            "id":"treehouseWithLadder",
+            "x":17,
+            "y":20,
+            "hidden":true,
+            "image":"img/rooms/treeHouseWithLadder.png"
+        },
+        {
+            "name": "Rock",
+            "id":"rock",
+            "x":0,
+            "y":-5,
+            "hidden":false,
+            "image":"img/rooms/rock.png"
+        },
+        {
+            "name": "Broken Treehouse",
+            "id":"brokenTreehouse",
+            "x":17,
+            "y":20,
+            "hidden":true,
+            "image":"img/rooms/treeHouseBroke.png"
+        }
+    ],
+    "gameActions" : [
+        {
+            "between":["ladder","treehouse"],
+            "type": "item",
+            "hide":["ladder", "treehouse"],
+            "show":["treehouseWithLadder"],
+            "caption":"You've reached the Tree House!"
+        },
+        {
+            "between" : ["treehouse", "treehouse"],
+            "type": "caption",
+            "caption" : "You cant reach that!"
+        },
+        {
+            "between" : ["treehouseWithLadder", "treehouseWithLadder"],
+            "type": "caption",
+            "caption" : "Wow - what a view!"
+        },
+        {
+            "between":["rock","treehouse"],
+            "type": "item",
+            "hide":["rock", "treehouseWithLadder", "treehouse"],
+            "show":["brokenTreehouse"],
+            "caption" : "Woops!"
+        },
+        {
+            "between":["rock","treehouseWithLadder"],
+            "type": "item",
+            "hide":["rock", "treehouseWithLadder", "treehouse"],
+            "show":["brokenTreehouse"],
+            "caption" : "Oh dear!"
+        }
+    ]
+}
