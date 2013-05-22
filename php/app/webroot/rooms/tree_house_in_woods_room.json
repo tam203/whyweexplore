@@ -5,7 +5,7 @@
         {
             "name":"Ladder",
             "id":"ladder",
-            "x":87,
+            "x":70,
             "y":3,
             "image":"img/rooms/ladder.png"
         },
@@ -27,7 +27,7 @@
         {
             "name": "Rock",
             "id":"rock",
-            "x":0,
+            "x":10,
             "y":-5,
             "hidden":false,
             "image":"img/rooms/rock.png"
