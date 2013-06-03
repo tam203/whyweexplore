@@ -4,7 +4,7 @@ define([
     'whyweexplore/roombuilder/room/events/SetBackGroundImageEvent',
     'whyweexplore/roombuilder/room/control/RoomBackgroundImageUploadController'
     ],
-    function (topic, SetBackGroundImageEvent, RoomBackgroundImageUploadController) {
+    function (topic, lang, SetBackGroundImageEvent, RoomBackgroundImageUploadController) {
     return {execute:function(){
         var roomBackgroundImageUploadController = new (RoomBackgroundImageUploadController);
         topic.subscribe(SetBackGroundImageEvent.SET_BACKGROUND_IMAGE_BUTTON_CLICKED,

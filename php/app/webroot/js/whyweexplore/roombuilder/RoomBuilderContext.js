@@ -1,7 +1,7 @@
 define([
     'whyweexplore/roombuilder/room/control/RoomContext'
 ],
-    function (topic, SetBackGroundImageEvent, RoomBackgroundImageUploadController) {
+    function (RoomContext) {
         return {execute:function(){
             RoomContext.execute();
         }};

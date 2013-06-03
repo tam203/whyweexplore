@@ -1,6 +1,13 @@
 {
-    "title":"Tree house in the woods",
+    "title":"Move Me",
     "background":"img/rooms/interviewbackground.jpg",
-    "items": [],
+    "items": [{
+        "name":"Girl",
+        "id":"girl",
+        "x":0,
+        "y":-6,
+        "image":"img/characters/pplDressGirl.png",
+        "type":"keyboard controlled"
+    }],
     "gameActions" : []
 }

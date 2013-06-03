@@ -1,22 +1,13 @@
 define(['dojo/_base/declare', 'dojo/dom-construct','dojo/dom-style', "whyweexplore/roomplayer/items/Item",
-    "whyweexplore/roomplayer/gameAction/actions/GameActionParser", 'whyweexplore/roomplayer/items/theItemCatalogue'],
-    function(declare, domConstruct, domStyle, GameItem, GameActionParser, itemCatalogue){
+    "whyweexplore/roomplayer/gameAction/actions/GameActionParser", 'whyweexplore/roomplayer/items/theItemCatalogue',
+    "whyweexplore/roomplayer/items/ItemParser"],
+    function(declare, domConstruct, domStyle, GameItem, GameActionParser, itemCatalogue, ItemParser){
         var RoomModel = declare(null,{
             loadRoom:function(roomData){
                 this.title = roomData.title;
                 this.background = roomData.background;
-                this._parseItems(roomData.items);
-                this._parseGameActions(roomData.gameActions);
-            },
-
-            _parseItems: function(items){
-                for(var i=0; i < items.length; i++) {
-                    itemCatalogue.add(new GameItem(items[i]));
-                }
-            },
-
-            _parseGameActions: function(interactions){
-                this._gameActions = GameActionParser.parse(interactions);
+                ItemParser.parse(roomData.items);
+                this._gameActions = GameActionParser.parse(roomData.gameActions);
             },
 
             getGameActions: function(){

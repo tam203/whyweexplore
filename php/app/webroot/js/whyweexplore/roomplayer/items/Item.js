@@ -6,7 +6,7 @@ define(["dojo/_base/declare", "dijit/_WidgetBase", "dijit/_TemplatedMixin", 'doj
     "dojo/_base/event"],
     function(declare, _WidgetBase, _TemplatedMixin, domStyle, InteractionEvent,
              InteractionModel, topic, template, event){
-    var Item = declare("Item",[_WidgetBase, _TemplatedMixin], {
+    var Item = declare(/*"Item",*/[_WidgetBase, _TemplatedMixin], {
         templateString:template,
         postCreate:function(){
             domStyle.set(this.domNode, {
