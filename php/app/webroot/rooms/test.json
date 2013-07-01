@@ -1,0 +1,21 @@
+{
+    title: "None",
+    background: "img/room_background/1371590213_woods.jpg",
+    items: [
+        {
+            image: "img/room_background/1371590216_ladder.png",
+            x: "64",
+            y: "29"
+        },
+        {
+            image: "img/room_background/1371590221_rock.png",
+            x: "40",
+            y: "268"
+        },
+        {
+            image: "img/room_background/1371590234_treeHouse.png",
+            x: "204",
+            y: "1"
+        }
+    ]
+}

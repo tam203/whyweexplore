@@ -2,8 +2,9 @@ define(
     ['whyweexplore/roomplayer/room/theRoom',
      'whyweexplore/roomplayer/view/theStage',
      'whyweexplore/roomplayer/setup/appContext',
-     'dojo/_base/xhr'],
-    function(theRoom, theStage, appContext, xhr){
+     'dojo/_base/xhr',
+     'whyweexplore/roomplayer/items/theItemCatalogue'],
+    function(theRoom, theStage, appContext, xhr, theItemCatalogue){
         return function(){
             appContext.execute();
 			var url = location.hash.substr(1);
@@ -18,7 +19,7 @@ define(
                     theRoom.loadRoom(roomData);
                     theStage.setBackground(theRoom.background);
             }).then(function(){
-                theRoom.addObjectsToStage(theStage);
+                theRoom.addObjectsToStage(theItemCatalogue.items());
             });
         }
     }

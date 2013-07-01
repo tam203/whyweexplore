@@ -3,6 +3,9 @@ define(['whyweexplore/roomplayer/gameAction/actions/caption/CaptionGameAction',
     function(CaptionGameAction, ItemGameAction){
     var GameActionParser = {
         parse:function(interactions){
+            if(!interactions){
+                interactions = [];
+            }
             var interactionObjects = [];
             for(var i=0; i < interactions.length; i++){
                 var interaction = interactions[i];

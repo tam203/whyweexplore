@@ -1,8 +1,11 @@
 define([
-    'whyweexplore/roombuilder/room/control/RoomContext'
+    'whyweexplore/roombuilder/room/RoomContext',
+    'whyweexplore/roombuilder/items/ItemsContext'
 ],
-    function (RoomContext) {
+    function (RoomContext, ItemsContext) {
         return {execute:function(){
             RoomContext.execute();
+            ItemsContext.execute();
+
         }};
     });

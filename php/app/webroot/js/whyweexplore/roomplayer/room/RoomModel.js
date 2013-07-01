@@ -1,7 +1,7 @@
 define(['dojo/_base/declare', 'dojo/dom-construct','dojo/dom-style', "whyweexplore/roomplayer/items/Item",
-    "whyweexplore/roomplayer/gameAction/actions/GameActionParser", 'whyweexplore/roomplayer/items/theItemCatalogue',
-    "whyweexplore/roomplayer/items/ItemParser"],
-    function(declare, domConstruct, domStyle, GameItem, GameActionParser, itemCatalogue, ItemParser){
+    "whyweexplore/roomplayer/gameAction/actions/GameActionParser",
+    "whyweexplore/roomplayer/items/ItemParser", "whyweexplore/roomplayer/view/theStage"],
+    function(declare, domConstruct, domStyle, GameItem, GameActionParser, ItemParser, theStage){
         var RoomModel = declare(null,{
             loadRoom:function(roomData){
                 this.title = roomData.title;
@@ -15,13 +15,20 @@ define(['dojo/_base/declare', 'dojo/dom-construct','dojo/dom-style', "whyweexplo
             },
 
 
-            addObjectsToStage: function(stage){
-                var items = itemCatalogue.items();
+            addObjectsToStage: function(items){
                 for(var i = 0; i < items.length; i++){
-                    var gameItem = items[i];
-                    gameItem.placeAt(stage.ele)
-                    gameItem.startup();
+                    this.addObjectToStage(items[i])
                 }
+            },
+
+            addObjectToStage: function(gameItem){
+                gameItem.placeAt(theStage.ele)
+                gameItem.startup();
+            },
+
+            setRoomBackground:function(imgUrl){
+                this.background = imgUrl;
+                theStage.setBackground(imgUrl);
             }
 
 

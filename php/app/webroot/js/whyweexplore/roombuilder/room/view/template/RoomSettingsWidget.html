@@ -1,4 +1,5 @@
 <div>Room Settings Widget
-    <button data-dojo-type="dijit/form/Button" type="button" data-dojo-attach-event="onClick:_backgroundImageLoadClick">Set background image</button>
-    <input name="uploadedfile" multiple="true" type="file" data-dojo-type="dojox/form/Uploader" label="Select Some Files" id="uploader" />
+    <input type='upload' data-dojo-attach-point="uploader" data-dojo-type="whyweexplore/roombuilder/utils/ImageUploader" />
+    <button type="button" data-dojo-attach-event="onclick:export">Export</button>
+    <a data-dojo-attach-point="_playButton" href=""></a>
 </div>

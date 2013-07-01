@@ -1,29 +1,34 @@
-define(['dojo/_base/declare'],function(declare){
-    var ItemCatalogue = declare(null, {
+define(['dojo/_base/declare' , "dojo/store/Memory"],function(declare, Memory){
+    var ItemCatalogue = declare([Memory], {
         _catalogue:{},
         add:function(item){
-            this._catalogue[item.id] = item;
+            this.put(item);
+            //this._catalogue[item.id] = item;
         },
         remove:function(item_id){
-            var item = this._catalogue[item_id];
-            delete this._catalogue[item_id];
-            return item;
+            return this.inherited(arguments);
+            /*var item = this._catalogue[item_id];
+             delete this._catalogue[item_id];
+             return item;*/
         },
         get: function(item_id){
-            var item = null;
-            if(this._catalogue.hasOwnProperty(item_id)){
-                item = this._catalogue[item_id];
-            }
-            return item;
+            return this.inherited(arguments);
+            /*var item = null;
+             if(this._catalogue.hasOwnProperty(item_id)){
+             item = this._catalogue[item_id];
+             }
+             return item;*/
         },
         items:function(){
-            var items = [];
-            for(var i in this._catalogue){
-                if(this._catalogue.hasOwnProperty(i)){
-                    items.push(this._catalogue[i]);
-                }
-            }
-            return items;
+            return this.query();
+            /*
+             var items = [];
+             for(var i in this._catalogue){
+             if(this._catalogue.hasOwnProperty(i)){
+             items.push(this._catalogue[i]);
+             }
+             }
+             return items;*/
         }
 
     });

@@ -1,3 +1,5 @@
-define(function () {
-    return {id:1};
+define(['whyweexplore/roombuilder/room/model/RoomModel'], function(RoomModel){
+    {
+        return new RoomModel();
+    }
 });
